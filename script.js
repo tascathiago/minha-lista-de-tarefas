@@ -12,8 +12,16 @@ form.addEventListener("submit", function (event) {
   }
 
   const item = document.createElement("li");
-  item.textContent = taskText;
+  const removeButton = document.createElement("button");
 
+  item.textContent = taskText;
+  removeButton.textContent = "Remover";
+
+  removeButton.addEventListener("click", function () {
+    item.remove();
+  });
+
+  item.appendChild(removeButton);
   list.appendChild(item);
   input.value = "";
 });
